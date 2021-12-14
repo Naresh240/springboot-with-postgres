@@ -93,3 +93,8 @@ persistence:
   accessMode: ReadWriteMany
   size: 250Mi
   annotations: {}
+
+exports:
+  secrets:
+    username: YWRtaW4=
+    password: YWRtaW4=
