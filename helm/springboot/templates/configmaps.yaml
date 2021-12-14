@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "springboot.fullname" . }}
+  labels:
+    app: {{ include "springboot.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"  
+data:
+  host: {{ .Values.configmaps.host | b64enc | quote }}

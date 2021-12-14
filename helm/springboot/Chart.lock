@@ -1,0 +1,6 @@
+dependencies:
+- name: postgres
+  repository: https://raw.githubusercontent.com/naresh240/springboot-with-postgres/kubernetes/helm/
+  version: 0.1.0
+digest: sha256:fabcab50d67647674ea644a5883c65c02ceea86791010769d82e702f1c4f5546
+generated: "2021-12-14T07:06:59.805947834Z"

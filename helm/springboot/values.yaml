@@ -81,4 +81,10 @@ tolerations: []
 
 affinity: {}
 
+configmaps:
+  host: postgres
 
+postgres:
+  secrets:
+    username: YWRtaW4=
+    password: YWRtaW4=

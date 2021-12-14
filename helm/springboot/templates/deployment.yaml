@@ -34,21 +34,15 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: {{ include "springboot.fullname" . }}
+                key: host
           - name: POSTGRES_USER
-            valueFrom:
-              configMapKeyRef:
-                name: {{ template "postgres.configmapName" . }}
-                key: username
+            value: {{ .Values.secrets.username }}
           - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ template "postgres.secretName" . }}
-                key: password
-		  - name: POSTGRES_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: {{ template "postgres.configmapName" . }}
-                key: postgres_host
+            value: {{ .Values.secrets.password }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
