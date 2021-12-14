@@ -3,12 +3,12 @@ entries:
   postgres:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-14T07:54:09.580495098Z"
+    created: "2021-12-14T07:55:13.549570051Z"
     description: A Helm chart for Kubernetes
-    digest: be17ce148dd63416fa9198c50e95a49dd118fbb8178fe8d3d6dc84073257f2af
+    digest: c588308722d3800323876957912cb9d6c356e0135642f9cbb67b459e6f16db3e
     name: postgres
     type: application
     urls:
     - https://raw.githubusercontent.com/naresh240/springboot-with-postgres/kubernetes/helm/postgres-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-14T07:54:09.579437046Z"
+generated: "2021-12-14T07:55:13.548622803Z"
