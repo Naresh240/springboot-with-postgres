@@ -31,29 +31,17 @@ Push docker image to dockerhub
 
 Encode USERNAME and PASSWORD of Postgres using following commands:
 --------
-    echo -n "postgresadmin" | base64
-    echo -n "admin123" | base64
-Create the Secret using kubectl apply:
--------
-    kubectl apply -f postgres-secrets.yml
-
-Create PV and PVC for Postgres using yaml file:
------
-    kubectl apply -f postgres-storage.yaml
+    echo -n "admin" | base64
 
 Deploying Postgres with kubectl apply:
 -----------
-    kubectl apply -f postgres-deployment.yaml
-    kubectl apply -f postgres-service.yaml
-
-Create a config map with the hostname of Postgres
--------------
-    kubectl create configmap hostname-config --from-literal=postgres_host=$(kubectl get svc postgres -o jsonpath="{.spec.clusterIP}")
-    
+    cd postgres
+    kubectl apply -f .
+  
 Deploy Spring Application:
 --------
-    kubectl apply -f springboot-deployment.yml
-    kubectl apply -f springboot-service.yml
+    cd springboot
+    kubectl apply -f .
 
 # Check secrets, configmaps, pv, pvc, deployments, pods and services:
     kubectl get secrets
@@ -67,7 +55,7 @@ Deploy Spring Application:
 Now Goto Loadbalancer and check whether service comes Inservice or not, If it comes Inservice run ingress file
 
 # Run Ingress file using below command
-    kubectl apply -f springboot-ingress.yml
+    kubectl apply -f ingress.yml
     
 # Check ingress attached to ALB ingress controller or not:
     kubectl get ingress
@@ -105,10 +93,4 @@ Use GET Method:
 You can Test other API also.........
 
 # Cluean UP process:
-    kubectl delete ingress springboot-ingress
-    kubectl delete deploy spring-boot-postgres-sample postgres
-    kubectl delete svc spring-boot-postgres-sample postgres
-    kubectl delete pvc postgres-pv-claim
-    kubectl delete pv postgres-pv-volume
-    kubectl delete secrets postgres-secrets
-    kubectl delete configmaps hostname-config
+    kubectl delete -f .
