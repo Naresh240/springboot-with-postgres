@@ -30,6 +30,6 @@ spec:
           - name: POSTGRES_HOST
             valueFrom:
               configMapKeyRef:
-                name: hostname-config
+                name: postgress-host
                 key: postgres_host
         image: naresh240/springbootpostgresrestapidemo
