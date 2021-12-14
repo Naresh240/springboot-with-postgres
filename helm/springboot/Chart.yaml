@@ -28,4 +28,4 @@ dependencies:
   version: 0.1.0
   repository: https://raw.githubusercontent.com/naresh240/springboot-with-postgres/kubernetes/helm/
   import-values:
-  - secrets
+    - secrets
