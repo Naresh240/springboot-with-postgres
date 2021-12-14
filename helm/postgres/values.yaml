@@ -94,7 +94,6 @@ persistence:
   size: 250Mi
   annotations: {}
 
-exports:
-  secrets:
-    username: YWRtaW4=
-    password: YWRtaW4=
+secrets:
+  username: YWRtaW4=
+  password: YWRtaW4=

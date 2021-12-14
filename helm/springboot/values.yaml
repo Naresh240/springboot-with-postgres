@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: naresh240/springbootpostgresrestapidemo
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -84,3 +84,6 @@ affinity: {}
 configmaps:
   host: postgres
 
+secrets:
+  username: admin
+  password: admin
