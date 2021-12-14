@@ -1,0 +1,23 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ template "postgres.fullname" . }}
+{{- with .Values.persistence.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  labels:
+    app: {{ template "postgres.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  storageClassName: {{ .Values.persistence.storageClass }}
+  capacity:
+    storage: {{ .Values.persistence.size | quote }}
+  persistentVolumeReclaimPolicy: Retain	
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/data"
