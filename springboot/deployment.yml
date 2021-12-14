@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-postgres-sample
+        image: naresh240/springbootpostgresrestapidemo
         env:
           - name: POSTGRES_USER
             valueFrom:
@@ -32,4 +33,3 @@ spec:
               configMapKeyRef:
                 name: postgress-host
                 key: postgres_host
-        image: naresh240/springbootpostgresrestapidemo
